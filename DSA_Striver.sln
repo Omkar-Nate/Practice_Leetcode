@@ -5,25 +5,53 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DSA_Striver", "DSA_Striver.vcxproj", "{0069045F-31CB-4D8F-BCE6-801E0A74C67D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CPP", "CPP", "{B24EDA04-69E5-436C-9A91-C0CAD417A219}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeetCodePractice", "Csharp\LeetCodePractice.csproj", "{440970FF-CF3E-47B1-9C55-4799593EEDF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Csharp", "Csharp", "{D75F000A-74B5-446B-9089-E6847BEFF996}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Debug|Any CPU.Build.0 = Debug|x64
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Debug|x64.ActiveCfg = Debug|x64
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Debug|x64.Build.0 = Debug|x64
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Debug|x86.ActiveCfg = Debug|Win32
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Debug|x86.Build.0 = Debug|Win32
+		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Release|Any CPU.ActiveCfg = Release|x64
+		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Release|Any CPU.Build.0 = Release|x64
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Release|x64.ActiveCfg = Release|x64
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Release|x64.Build.0 = Release|x64
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Release|x86.ActiveCfg = Release|Win32
 		{0069045F-31CB-4D8F-BCE6-801E0A74C67D}.Release|x86.Build.0 = Release|Win32
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Debug|x64.Build.0 = Debug|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Debug|x86.Build.0 = Debug|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Release|x64.ActiveCfg = Release|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Release|x64.Build.0 = Release|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Release|x86.ActiveCfg = Release|Any CPU
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0069045F-31CB-4D8F-BCE6-801E0A74C67D} = {B24EDA04-69E5-436C-9A91-C0CAD417A219}
+		{440970FF-CF3E-47B1-9C55-4799593EEDF7} = {D75F000A-74B5-446B-9089-E6847BEFF996}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B38CBDF7-8AE0-4CC6-8BD5-701903ED6E90}
