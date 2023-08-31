@@ -8,7 +8,25 @@ namespace LeetCodePractice
         {
             // Replace the function calls to test the function.
             // Do checkout the required arguments for them.
-            Console.WriteLine(IsArmstrongNumber(143));
+            // Function calls that return a value should be added in a console.writeline 
+            Console.WriteLine();
+            GetAllDivisors(97);
+        }
+
+        /// <summary>
+        /// Prints divisors of a given number
+        /// </summary>
+        /// <param name="number"></param>
+        static void GetAllDivisors(int number)
+        {
+            for (int i = 1; i <= number; i++)
+            {
+                if (number % i == 0)
+                {
+                    Console.Write(i);
+                    Console.Write(" ");
+                }
+            }
         }
 
         /// <summary>
