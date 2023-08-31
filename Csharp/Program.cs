@@ -9,9 +9,30 @@ namespace LeetCodePractice
             // Replace the function calls to test the function.
             // Do checkout the required arguments for them.
             // Function calls that return a value should be added in a console.writeline 
-            Console.WriteLine(CheckIfNumberIsPrime(97));
+            Console.WriteLine();
+            PrintUsingRecursion("omkar", 5);
         }
 
+        #region Recursion
+
+        /// <summary>
+        /// Uses recursion for printing input string
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="count"></param>
+        static void PrintUsingRecursion(string name, int count)
+        {
+            if (count==0)
+            {
+                return;
+            }
+            Console.WriteLine(name);
+            PrintUsingRecursion(name, --count);
+        }
+
+        #endregion
+
+        #region Mathematical problems
         /// <summary>
         /// Checks if the given number is prime
         /// </summary>
@@ -38,17 +59,17 @@ namespace LeetCodePractice
         /// Prints divisors of a given number
         /// </summary>
         /// <param name="number"></param>
-        //static void GetAllDivisors(int number)
-        //{
-        //    for (int i = 1; i <= number; i++)
-        //    {
-        //        if (number % i == 0)
-        //        {
-        //            Console.Write(i);
-        //            Console.Write(" ");
-        //        }
-        //    }
-        //}
+        static void GetAllDivisors(int number)
+        {
+            for (int i = 1; i <= number; i++)
+            {
+                if (number % i == 0)
+                {
+                    Console.Write(i);
+                    Console.Write(" ");
+                }
+            }
+        }
 
         /// <summary>
         /// Checks if a number is armstrong or not.
@@ -125,5 +146,7 @@ namespace LeetCodePractice
             }
             return answer;
         }
+
+        #endregion
     }
 }
