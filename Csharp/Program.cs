@@ -12,6 +12,11 @@ namespace LeetCodePractice
             Console.WriteLine(CheckIfNumberIsPrime(97));
         }
 
+        /// <summary>
+        /// Checks if the given number is prime
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         static bool CheckIfNumberIsPrime(int number)
         {
             if (number < 2)
