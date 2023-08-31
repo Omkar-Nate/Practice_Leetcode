@@ -9,25 +9,35 @@ namespace LeetCodePractice
             // Replace the function calls to test the function.
             // Do checkout the required arguments for them.
             // Function calls that return a value should be added in a console.writeline 
+            PrintNumbers(10);
             Console.WriteLine();
-            PrintUsingRecursion("omkar", 5);
         }
 
         #region Recursion
+
+        static void PrintNumbers(int number, int count=1)
+        {
+            if (count > number)
+            {
+                return;
+            }
+            Console.WriteLine(count);
+            PrintNumbers(number, ++count);
+        }
 
         /// <summary>
         /// Uses recursion for printing input string
         /// </summary>
         /// <param name="name"></param>
         /// <param name="count"></param>
-        static void PrintUsingRecursion(string name, int count)
+        static void PrintName(string name, int count)
         {
             if (count==0)
             {
                 return;
             }
             Console.WriteLine(name);
-            PrintUsingRecursion(name, --count);
+            PrintName(name, --count);
         }
 
         #endregion
