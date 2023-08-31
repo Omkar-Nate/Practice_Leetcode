@@ -9,25 +9,41 @@ namespace LeetCodePractice
             // Replace the function calls to test the function.
             // Do checkout the required arguments for them.
             // Function calls that return a value should be added in a console.writeline 
-            Console.WriteLine();
-            GetAllDivisors(97);
+            Console.WriteLine(CheckIfNumberIsPrime(97));
+        }
+
+        static bool CheckIfNumberIsPrime(int number)
+        {
+            if (number < 2)
+            {
+                return false;
+            }
+
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0 && i != number)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
         /// Prints divisors of a given number
         /// </summary>
         /// <param name="number"></param>
-        static void GetAllDivisors(int number)
-        {
-            for (int i = 1; i <= number; i++)
-            {
-                if (number % i == 0)
-                {
-                    Console.Write(i);
-                    Console.Write(" ");
-                }
-            }
-        }
+        //static void GetAllDivisors(int number)
+        //{
+        //    for (int i = 1; i <= number; i++)
+        //    {
+        //        if (number % i == 0)
+        //        {
+        //            Console.Write(i);
+        //            Console.Write(" ");
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Checks if a number is armstrong or not.
