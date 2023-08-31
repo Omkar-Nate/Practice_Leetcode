@@ -15,6 +15,11 @@ namespace LeetCodePractice
 
         #region Recursion
 
+        /// <summary>
+        /// Prints numbers upto a given number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="count"></param>
         static void PrintNumbers(int number, int count=1)
         {
             if (count > number)
