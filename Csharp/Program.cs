@@ -8,12 +8,68 @@ namespace LeetCodePractice
         {
             // Replace the function calls to test the function.
             // Do checkout the required arguments for them.
-            // Function calls that return a value should be added in a console.writeline 
-            PrintNumbers(10);
+            // Function calls that return a value should be added in a console.writeline
+            // Functions that return a collection should be iterated using loops
+
             Console.WriteLine();
         }
 
         #region Recursion
+
+        /// <summary>
+        /// Reverses an array using recursion
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="lastIndex"></param>
+        /// <returns></returns>
+        static int[] PrintArrayInReverse(int[] arr, int startIndex = 0, int lastIndex = 0)
+        {
+            if (lastIndex == 0)
+            {
+                lastIndex = arr.Length - 1;
+            }
+            if (startIndex<lastIndex)
+            {
+                int temp;
+                temp = arr[startIndex];
+                arr[startIndex] = arr[lastIndex];
+                arr[lastIndex] = temp;
+                return PrintArrayInReverse(arr, ++startIndex, --lastIndex);
+            }
+            return arr;
+
+        }
+
+        /// <summary>
+        /// Does factorial of a given number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        static int Factorial(int number, int count = 1)
+        {
+            if (number == count)
+            {
+                return count;
+            }
+            return Factorial(number, count + 1) * count;
+        }
+
+        /// <summary>
+        /// Does sum of first N numbers
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        static int SumOfFirstNNumbers(int number, int count = 1)
+        {
+            if (count == number)
+            {
+                return number;
+            }
+            return SumOfFirstNNumbers(number, count+1) + count;
+        }
 
         /// <summary>
         /// Prints numbers upto a given number
