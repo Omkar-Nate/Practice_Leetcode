@@ -17,6 +17,41 @@ namespace LeetCodePractice
         #region Recursion
 
         /// <summary>
+        /// Checks if the string is palindrome
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsPalindrome(string s)
+        {
+            System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex("[^a-zA-Z0-9]");
+            s = r.Replace(s, String.Empty);
+            s = s.ToLower();
+            if (s.Length <= 1)
+                return true;
+
+            return IsPalindrome(s, 0);
+        }
+
+        /// <summary>
+        /// Overriden method of IsPalindrome(string) that is called after removing
+        /// special characters, spaces and changing case to lower
+        /// Checks if the string is palindrome
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <param name="startIndex"></param>
+        /// <returns></returns>
+        private static bool IsPalindrome(string inputString, int startIndex)
+        {
+            if(inputString.Length/2<=startIndex)
+                return true;
+
+            if (inputString[startIndex] != inputString[inputString.Length - 1 - startIndex])
+                return false;
+
+            return IsPalindrome(inputString, ++startIndex);
+        }
+
+        /// <summary>
         /// Reverses an array using recursion
         /// </summary>
         /// <param name="arr"></param>
