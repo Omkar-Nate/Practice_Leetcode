@@ -17,6 +17,21 @@ namespace LeetCodePractice
         #region Recursion
 
         /// <summary>
+        /// returns nth fibonacci number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static int GetNthFibonacci(int number)
+        {
+            if (number <= 1)
+            {
+                return number;
+            }
+            
+            return GetNthFibonacci(number - 1) + GetNthFibonacci(number - 2);
+        }
+
+        /// <summary>
         /// Checks if the string is palindrome
         /// </summary>
         /// <param name="s"></param>
