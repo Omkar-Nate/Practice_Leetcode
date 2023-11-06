@@ -11,18 +11,17 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] ans = countFrequency(10, 14, new int[] { 11,14,8,3,12,14,1,7,4,3});
-
-            for (int i = 0; i < ans.Length; i++)
-            {
-                Console.WriteLine(ans[i]);
-            }
+            MaxFrequency(new int[] { 10, 5, 10, 15, 10, 5 });
 
             Console.WriteLine();
         }
 
-        #region 1838 Frequency of the Most Frequent Element
-        public static int MaxFrequency(int[] nums, int k)
+        #region Frequency of the Most Frequent Element
+        /// <summary>
+        /// Find minimum and maximum frequency of numbers in an array
+        /// </summary>
+        /// <param name="nums"></param>
+        public static void MaxFrequency(int[] nums)
         {
             Dictionary<int, int> numberFrequencies = new Dictionary<int, int>();
 
@@ -33,12 +32,30 @@ namespace LeetCodePractice
                     numberFrequencies[nums[i]]++;
                 } else
                 {
-                    numberFrequencies.Add(nums[i], 0);
+                    numberFrequencies.Add(nums[i], 1);
                 }
             }
 
-            return 0;
-            
+            int maxValue = 0,minValue=nums.Length;
+            int maxKey=0,minKey=0;
+
+
+            foreach (var item in numberFrequencies)
+            {
+                if (maxValue < item.Value)
+                {
+                    maxValue = item.Value;
+                    maxKey = item.Key;
+                }
+                if (minValue > item.Value)
+                {
+                    minValue = item.Value;
+                    minKey = item.Key;
+                }
+            }
+
+            Console.WriteLine( maxKey);
+            Console.WriteLine( minKey);
         }
         #endregion
 
