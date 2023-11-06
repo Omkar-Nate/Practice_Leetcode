@@ -11,8 +11,84 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
+            int[] ans = countFrequency(10, 14, new int[] { 11,14,8,3,12,14,1,7,4,3});
+
+            for (int i = 0; i < ans.Length; i++)
+            {
+                Console.WriteLine(ans[i]);
+            }
+
             Console.WriteLine();
         }
+
+        #region 1838 Frequency of the Most Frequent Element
+        public static int MaxFrequency(int[] nums, int k)
+        {
+            Dictionary<int, int> numberFrequencies = new Dictionary<int, int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (numberFrequencies.ContainsKey(nums[i]))
+                {
+                    numberFrequencies[nums[i]]++;
+                } else
+                {
+                    numberFrequencies.Add(nums[i], 0);
+                }
+            }
+
+            return 0;
+            
+        }
+        #endregion
+
+        #region Count frequency in Array
+        /// <summary>
+        /// Given an array of size 'n' has elements from '1' - 'x', 
+        /// this functions counts frequency of all elements from '1' - 'n'
+        /// </summary>
+        /// <param name="n">lenght of array</param>
+        /// <param name="x">range of numbers from 1 to x</param>
+        /// <param name="nums">array as input</param>
+        /// <returns></returns>
+        public static int[] countFrequency(int n, int x, int[] nums)
+        {
+            int[] result = new int[n];
+
+            int index = 0;
+            for (int i = 1; i < n + 1; i++)
+            {
+                if (true) { };
+
+                index = nums[i - 1];
+                if(index - 1 >= n)
+                {
+                    continue;
+                }
+                result[index - 1] += 1;
+            }
+
+
+            return result;
+        }
+        #endregion
+
+        #region Paranthesis Check
+        /// <summary>
+        /// Validates paranthesis is balanced
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <returns></returns>
+        public static bool ParanthesisCheck(string inputString)
+        {
+
+            while (inputString.Contains("()") || inputString.Contains("{}") || inputString.Contains("[]"))
+            {
+                inputString = inputString.Replace("()", "").Replace("[]", "").Replace("{}", "");
+            }
+            return inputString.Length == 0;
+        }
+        #endregion
 
         #region Recursion
 
