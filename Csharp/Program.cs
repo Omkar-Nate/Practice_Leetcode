@@ -11,7 +11,8 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            MaxFrequency(new int[] { 10, 5, 10, 15, 10, 5 });
+            MaxFrequency(new int[] { 10, 5, 10, 15, 10, 5 }); 
+
 
             Console.WriteLine();
         }
