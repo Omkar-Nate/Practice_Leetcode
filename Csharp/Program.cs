@@ -13,22 +13,45 @@ namespace LeetCodePractice
 
             //SwapNumbers(new int[] { 10, 5, 10, 15, 10, 5 }); 
 
-            int[] result = new int[]{ 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-
-            result = SelectionSort(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 });
-
-            for (int i = 0; i < result.Length; i++)
-            {
-                Console.WriteLine(result[i]);
-            }
-
+            BubbleSort(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 });
 
             Console.WriteLine();
         }
 
         #region Sorting
 
-        #region
+        #region Bubble Sort
+
+        /// <summary>
+        /// Sort the integer array using BubbleSort
+        /// Uses two index. Comparison happens between alternate numbers
+        /// Uses swapping without third number
+        /// </summary>
+        /// <param name="arr"></param>
+        public static void BubbleSort(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 1; j < arr.Length; j++)
+                {
+                    if (arr[j-1] > arr[j])
+                    {
+                        arr[j-1] += arr[j];
+                        arr[j] = arr[j - 1] - arr[j];
+                        arr[j - 1] = arr[j - 1] - arr[j];
+                    }
+                }
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
+
+        #endregion
+
+        #region Selection Sort
         /// <summary>
         /// Sorts an integer array by selection sort algorithm
         /// uses two index to compare and then swap if number on 2nd index is greater
@@ -51,6 +74,14 @@ namespace LeetCodePractice
             return arr;
         }
 
+        #endregion
+
+        #region Swap numbers by reference
+        /// <summary>
+        /// Swaps value of references
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         public static void SwapNumbers(ref int a,ref int b)
         {
             int temp = a;
