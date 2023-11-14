@@ -11,11 +11,55 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            MaxFrequency(new int[] { 10, 5, 10, 15, 10, 5 }); 
+            //SwapNumbers(new int[] { 10, 5, 10, 15, 10, 5 }); 
+
+            int[] result = new int[]{ 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+
+            result = SelectionSort(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 });
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                Console.WriteLine(result[i]);
+            }
 
 
             Console.WriteLine();
         }
+
+        #region Sorting
+
+        #region
+        /// <summary>
+        /// Sorts an integer array by selection sort algorithm
+        /// uses two index to compare and then swap if number on 2nd index is greater
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static int[] SelectionSort(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i+1; j < arr.Length; j++)
+                {
+                    if (arr[j] < arr[i])
+                    {
+                        SwapNumbers(ref arr[i], ref arr[j]);
+                    }
+                }
+            }
+
+            return arr;
+        }
+
+        public static void SwapNumbers(ref int a,ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+        #endregion
+
+        #endregion
 
         #region Frequency of the Most Frequent Element
         /// <summary>
