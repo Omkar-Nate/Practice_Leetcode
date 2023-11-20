@@ -20,6 +20,32 @@ namespace LeetCodePractice
 
         #region Sorting
 
+        #region Insertion Sort
+        /// <summary>
+        /// Shift integer to its right position
+        /// </summary>
+        /// <param name="arr"></param>
+        public static void InsertionSort(int[] arr)
+        {
+            for (int i = 0; i < arr.Length-1; i++)
+            {
+                int j = 1;
+                while (j > 0 && arr[j - 1] > arr[j])
+                {
+                    arr[j - 1] += arr[j];
+                    arr[j] = arr[j - 1] - arr[j];
+                    arr[j - 1] = arr[j - 1] - arr[j];
+                    j--;
+                }
+            }
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
+        }
+        #endregion
+
         #region Bubble Sort
 
         /// <summary>
