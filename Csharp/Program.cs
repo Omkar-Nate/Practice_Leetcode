@@ -11,14 +11,102 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            //SwapNumbers(new int[] { 10, 5, 10, 15, 10, 5 }); 
-
-            BubbleSort(new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 });
+            int[] arr = new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            MergeSort(arr, 0, arr.Length-1);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i]);
+            }
 
             Console.WriteLine();
         }
 
+        #region Algorithms
+
+        #region Sliding Window Algorithm
+
+        #region Leetcode (3. Longest Substring Without Repeating Characters)
+
+        //public int LengthOfLongestSubstring(string s)
+        //{
+
+        //}
+
+        #endregion
+        #endregion
+        #endregion
+
         #region Sorting
+
+        #region Merge Sort
+        
+        // Support the merge sort method to merge the sorted sub arrays
+        public static void merge(int[] arr, int l, int m, int r)
+        {
+            List<int> list = new List<int>(); // List that will store the left array and the right array
+            int left = l; // Left index of the array to sort from
+            int right = m+1; // Right index of the array to sort upto
+
+            // Terminate when left or right index is exhausted
+            // compare element on the left index and right index, add smaller one to the list
+            while(left <= m && right <= r)
+            {
+                if (arr[left] <= arr[right])
+                {
+                    list.Add(arr[left++]);
+                }
+                else
+                {
+                    list.Add(arr[right++]);
+                }
+            }
+
+            // Exhaust the non-exhausted indices
+            while (left <= m)
+            {
+                list.Add(arr[left++]);
+            }
+
+            while (right <= r)
+            {
+                list.Add(arr[right++]);
+            }
+
+            // Add all the elements in their right position in the array
+            // (i-l) calculates the position of the element in the sub array passed
+            for (int i = l; i <= r; i++)
+            {
+                arr[i] = list[i - l];
+            }
+        }
+
+        /// <summary>
+        /// Sorts the array using merge sort
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="l"></param>
+        /// <param name="r"></param>
+        public static void MergeSort(int[] arr, int l, int r)
+        {
+            if (l >= r) return; // Base Case
+
+            int m = (l + r) / 2; // Find the mid
+
+            // Divide the Left half of the array; Array starts from "l -> m"
+            // Will eventually call the "merge()" which will take care of merging this left array with right
+            MergeSort(arr, l, m);
+
+            // Divide the Right half of the array; Array starts from "m+1 -> r"
+            // Will eventually call the "merge()" which will take care of merging this right array with left
+            MergeSort(arr, m + 1, r);
+
+            // Merge the left and the right array
+            // Also sorts the array by comparing each element of both left and right array
+            merge(arr, l, m, r);
+        }
+
+        #endregion
+
 
         #region Insertion Sort
         /// <summary>
@@ -27,9 +115,9 @@ namespace LeetCodePractice
         /// <param name="arr"></param>
         public static void InsertionSort(int[] arr)
         {
-            for (int i = 0; i < arr.Length-1; i++)
+            for (int i = 0; i <= arr.Length-1; i++)
             {
-                int j = 1;
+                int j = i;
                 while (j > 0 && arr[j - 1] > arr[j])
                 {
                     arr[j - 1] += arr[j];
