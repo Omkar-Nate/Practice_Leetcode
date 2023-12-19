@@ -11,7 +11,7 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+            int[] arr = new int[] { 2, 13, 4, 1, 3, 6, 28    };
             MergeSort(arr, 0, arr.Length-1);
             for (int i = 0; i < arr.Length; i++)
             {
