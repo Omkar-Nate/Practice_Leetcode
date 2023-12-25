@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 
 namespace LeetCodePractice
 {
@@ -11,17 +12,15 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 2, 13, 4, 1, 3, 6, 28    };
-            MergeSort(arr, 0, arr.Length-1);
+            int[] arr = new int[] { 2, 13, 4, 1, 3, 6, 28 };
+            BubbleSort(arr, arr.Length);
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine(arr[i]);
             }
-
-            Console.WriteLine();
         }
 
-        #region Algorithms
+        #region Leetcode
 
         #region Sliding Window Algorithm
 
@@ -33,13 +32,82 @@ namespace LeetCodePractice
         //}
 
         #endregion
+
+        #region Max Consecutive Ones
+
+        /// <summary>
+        /// Finds the maximum occurence of consecutive 1s in an array of 1s and 0s
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int FindMaxConsecutiveOnes(int[] nums)
+        {
+            if (!nums.Contains(0))
+            {
+                return nums.Length;
+            }
+
+            int sum = 0;
+            int maxOnes = 0;
+
+            for (int i = 0 ; i < nums.Length; i++)
+            {
+                if (nums[i] == 1)
+                {
+                    if (maxOnes < sum)
+                    {
+                        maxOnes = sum;
+                    }
+                    sum++;
+                }
+                else
+                {
+                    sum = 0;
+                }
+            }
+            return maxOnes;
+        }
+
+        #endregion
+
         #endregion
         #endregion
 
         #region Sorting
 
+        #region 
+
+        /// <summary>
+        ///  Sorts an integer array by comparing the adjacent element. 
+        ///  Moves one element in each iteration
+        ///  Uses recursion
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="lengthOfArr"></param>
+        public static void BubbleSort(int[] arr, int lengthOfArr)
+        {
+            if (lengthOfArr<=1)
+            {
+                return;
+            }
+
+            for (int i = 0; i < lengthOfArr-1; i++)
+            {
+                if (arr[i] > arr[i + 1])
+                {
+                    arr[i] = arr[i]+arr[i + 1];
+                    arr[i+1] = arr[i] - arr[i+1];
+                    arr[i] = arr[i] - arr[i + 1];
+                }
+            }
+
+            BubbleSort(arr, lengthOfArr-1);
+        }
+
+        #endregion
+
         #region Merge Sort
-        
+
         // Support the merge sort method to merge the sorted sub arrays
         public static void merge(int[] arr, int l, int m, int r)
         {
