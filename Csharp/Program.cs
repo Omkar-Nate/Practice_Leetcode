@@ -12,26 +12,75 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 2, 13, 4, 1, 3, 6, 28 };
-            BubbleSort(arr, arr.Length);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.WriteLine(arr[i]);
-            }
+            int[] arr = new int[] { 1, 2, 3, 1, 1, 3 };
+
+            Console.WriteLine(NumIdenticalPairs(arr));
         }
 
         #region Leetcode
 
-        #region Sliding Window Algorithm
+        #region 1512 Number of Good Pairs
 
-        #region Leetcode (3. Longest Substring Without Repeating Characters)
+        /// <summary>
+        /// Identifies the number of possible identical pairs in the given array
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int NumIdenticalPairs(int[] nums)
+        {
+            if (nums.Length == 1) return 0;
+            int goodPairs = 0;
 
-        //public int LengthOfLongestSubstring(string s)
-        //{
 
-        //}
+            // Uses dictionary to count the frequency of a number in the array.
+            // Uses arithmetic formula to calculate the number of good pairs (n*(n-1))/2
+
+            Dictionary<int, int> identicalNumbers = new Dictionary<int, int>();
+
+            for(int i = 0; i < nums.Length; i++)
+            {
+                if (identicalNumbers.ContainsKey(nums[i]))
+                {
+                    identicalNumbers[nums[i]]+=1;
+                    Console.WriteLine(identicalNumbers[nums[i]]);
+                }
+                else
+                {
+                    identicalNumbers.Add(nums[i], 1);
+                }
+            }
+
+            foreach(KeyValuePair<int,int> number in identicalNumbers)
+            {
+                
+                if (number.Value > 1)
+                {
+                    int freq = number.Value;
+                    goodPairs += (freq * (freq - 1)) / 2;
+                }
+            }
+
+
+            // Brute force approach. Uses O(n^2) Time complexity
+
+            //for (int i = 0; i < nums.Length - 1; i++)
+            //{
+            //    for (int j = i + 1; j < nums.Length; j++)
+            //    {
+            //        if (nums[i] == nums[j])
+            //        {
+            //            goodPairs++;
+            //        }
+            //    }
+            //}
+
+            return goodPairs;
+        }
 
         #endregion
+
+
+        #region Sliding Window Algorithm
 
         #region Max Consecutive Ones
 
@@ -75,7 +124,7 @@ namespace LeetCodePractice
 
         #region Sorting
 
-        #region 
+        #region Bubble Sort Recursive
 
         /// <summary>
         ///  Sorts an integer array by comparing the adjacent element. 
