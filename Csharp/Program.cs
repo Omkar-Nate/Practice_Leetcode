@@ -12,12 +12,40 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 1, 2, 3, 1, 1, 3 };
+            int[] arr = new int[] { 2, 5, 1, 3, 4, 7 };
 
-            Console.WriteLine(NumIdenticalPairs(arr));
+            arr = Shuffle(arr, arr.Length/2);
+
+            foreach(int number in arr)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine();
         }
 
         #region Leetcode
+
+        #region 1470. Shuffle the Array
+
+        /// <summary>
+        /// shuffles the array such that "i" and "i+n" are on adjacent indices
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static int[] Shuffle(int[] nums, int n)
+        {
+            int[] shuffledArray = new int[2*n];
+            for(int i=0; i < n; i++)
+            {
+                int index = i*2;
+                shuffledArray[index] = nums[i];
+                shuffledArray[index + 1] = nums[i + n];
+            }
+            return shuffledArray;
+        }
+
+        #endregion
 
         #region 1512 Number of Good Pairs
 
