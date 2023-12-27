@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace LeetCodePractice
@@ -24,6 +25,28 @@ namespace LeetCodePractice
         }
 
         #region Leetcode
+
+
+        #region 2492. Find Words Containing Character
+
+        /// <summary>
+        /// Finds words containing a character
+        /// </summary>
+        /// <param name="words"></param>
+        /// <param name="x"></param>
+        /// <returns>list of indexes of words that contain character x</returns>
+        public IList<int> FindWordsContaining(string[] words, char x)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Contains(x)) result.Add(i);
+            }
+
+            return result;
+        }
+
+        #endregion
 
         #region 1470. Shuffle the Array
 
