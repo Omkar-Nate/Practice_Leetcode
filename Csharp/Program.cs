@@ -26,6 +26,57 @@ namespace LeetCodePractice
 
         #region Leetcode
 
+        #region 2824. Count Pairs Whose Sum is Less than Target
+
+        /// <summary>
+        /// Count Pairs Whose Sum is Less than Target
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public int CountPairs(IList<int> nums, int target)
+        {
+            int result = 0;
+            for(int i=0; i<nums.Count; i++)
+            {
+                for (int j = i + 1; j < nums.Count; j++)
+                {
+                    if ((nums[i] + nums[j]) < target)
+                    {
+                        result++;
+                    }
+                }
+            }
+            GC.Collect();
+            return result;
+        }
+        #endregion
+
+        #region 1431. Kids With the Greatest Number of Candies
+
+        /// <summary>
+        /// Finds which kids will have the greates number of candies if given some extra candies
+        /// </summary>
+        /// <param name="candies"></param>
+        /// <param name="extraCandies"></param>
+        /// <returns></returns>
+        public static IList<bool> KidsWithCandies(int[] candies, int extraCandies)
+        {
+            int max = candies.Max();
+            bool[] result = new bool[candies.Length];
+
+            for(int i=0; i<candies.Length;i++)
+            {
+                if ((candies[i]+extraCandies)>=max)
+                {
+                    result[i] = true;
+                }
+            }
+
+            return result;
+        }
+
+        #endregion
 
         #region 2492. Find Words Containing Character
 
