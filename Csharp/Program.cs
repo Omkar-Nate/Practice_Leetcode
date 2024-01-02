@@ -13,18 +13,114 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 2, 5, 1, 3, 4, 7 };
+            int[] arr = new int[] { 10, 6, 5, 1, 9, 10, 8, 2, 2, 2 };
 
-            arr = Shuffle(arr, arr.Length/2);
+            //arr = Shuffle(arr, arr.Length/2);
 
-            foreach(int number in arr)
+            //foreach(int number in arr)
+            //{
+            //    Console.WriteLine(number);
+            //}
+            IList<IList<int>> temp = FindMatrix(arr);
+
+            foreach (IList<int> item in temp)
             {
-                Console.WriteLine(number);
+                Console.Write("[");
+                foreach (int item1 in item)
+                {
+                    Console.Write(" "+item1);
+                }
+                Console.Write("]");
+
             }
             Console.WriteLine();
         }
 
         #region Leetcode
+
+        #region 2610. Convert an Array Into a 2D Array With Conditions
+
+        public static IList<IList<int>> FindMatrix(int[] nums)
+        {
+            List<IList<int>> result = new List<IList<int>>();
+
+            Dictionary<int, int> numsFreq = new Dictionary<int, int>();
+
+            for(int i = 0; i<nums.Length; i++)
+            {
+                if (numsFreq.ContainsKey(nums[i]))
+                {
+                    numsFreq[nums[i]]++;
+                }
+                else
+                {
+                    numsFreq.Add(nums[i], 1);
+                }
+            }
+            int maxValue = numsFreq.Values.Max();
+            for(int i = 0; i < maxValue; i++)
+            {
+                List<int> newList = new List<int>();
+                foreach(int x in numsFreq.Keys)
+                {
+                    if (numsFreq[x]>i)
+                    {
+                        newList.Add(x);
+                    }
+                }
+                result.Add(newList);
+            }
+
+            GC.Collect();
+            return result;
+        }
+
+        #endregion
+
+        #region 2114. Maximum Number of Words Found in Sentences
+
+        /// <summary>
+        /// Finds sentence having most words
+        /// </summary>
+        /// <param name="sentences"></param>
+        /// <returns></returns>
+        public static int MostWordsFound(string[] sentences)
+        {
+            int result = 0, max = 0;
+
+            for (int i = 0; i < sentences.Length; i++)
+            {
+                string[] sentence = sentences[i].Split(' ');
+                max = Math.Max(max, sentence.Length);
+            }
+
+            GC.Collect();
+            return result;
+        }
+
+        #endregion
+
+        #region 1365. How Many Numbers Are Smaller Than the Current Number
+
+        /// <summary>
+        /// Returns an array of integer. Each integer tells how many numbers 
+        /// in the array are smaller than it
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int[] SmallerNumbersThanCurrent(int[] nums)
+        {
+            List<int> numsCopy = new List<int>(nums);
+            numsCopy.Sort();
+            int[] result = new int[nums.Length];
+            for (int i = 0; i < numsCopy.Count; i++)
+            {
+                result[i] = numsCopy.IndexOf(nums[i]);
+            }
+            return result;
+        }
+
+        #endregion
 
         #region 2824. Count Pairs Whose Sum is Less than Target
 
