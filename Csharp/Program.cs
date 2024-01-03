@@ -14,6 +14,7 @@ namespace LeetCodePractice
             // Functions that return a collection should be iterated using loops
 
             int[] arr = new int[] { 10, 6, 5, 1, 9, 10, 8, 2, 2, 2 };
+            string[] bank = new string[] { "011001", "000000", "010100", "001000" };
 
             //arr = Shuffle(arr, arr.Length/2);
 
@@ -21,22 +22,50 @@ namespace LeetCodePractice
             //{
             //    Console.WriteLine(number);
             //}
-            IList<IList<int>> temp = FindMatrix(arr);
 
-            foreach (IList<int> item in temp)
-            {
-                Console.Write("[");
-                foreach (int item1 in item)
-                {
-                    Console.Write(" "+item1);
-                }
-                Console.Write("]");
-
-            }
-            Console.WriteLine();
+            Console.WriteLine(NumberOfBeams(bank));
         }
 
         #region Leetcode
+
+        #region 2125. Number of Laser Beams in a Bank
+
+        /// <summary>
+        /// Simple math problem that checks connections of laser beams in bank
+        /// </summary>
+        /// <param name="bank"></param>
+        /// <returns></returns>
+        public static int NumberOfBeams(string[] bank)
+        {
+            int connections = 0;
+
+            int deviceRow1 = 0, deviceRow2 = 0;
+            bool isRow1Empty = true;
+
+            foreach(string row in bank) // 011001  deviceRow1 = 3
+            {
+                if (row.Contains("1"))
+                {
+                    if (isRow1Empty && deviceRow1==0)
+                    {
+                        deviceRow1 = row.Count(d => d == '1');
+                        isRow1Empty= false;
+                    }
+                    else
+                    {
+                        deviceRow2 = row.Count(d => d == '1');
+                        connections += deviceRow1 * deviceRow2;
+                        deviceRow1 = deviceRow2;
+                        deviceRow2 = 0;
+                        isRow1Empty = true;
+                    }
+                }
+            }
+
+            return connections;
+        }
+
+        #endregion
 
         #region 2610. Convert an Array Into a 2D Array With Conditions
 
