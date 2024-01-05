@@ -13,8 +13,8 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 10, 6, 5, 1, 9, 10, 8, 2, 2, 2 };
-            string[] bank = new string[] { "011001", "000000", "010100", "001000" };
+            int[] arr = new int[] { 28, 28, 28, 28, 28, 28, 16, 16, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26 };
+            //string[] bank = new string[] { "011001", "000000", "010100", "001000" };
 
             //arr = Shuffle(arr, arr.Length/2);
 
@@ -23,10 +23,52 @@ namespace LeetCodePractice
             //    Console.WriteLine(number);
             //}
 
-            Console.WriteLine(NumberOfBeams(bank));
+            Console.WriteLine(MinOperations(arr));
         }
 
         #region Leetcode
+
+        #region 2870. Minimum Number of Operations to Make Array Empty
+
+        /// <summary>
+        /// Calculated minimum operations required to empty the array
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int MinOperations(int[] nums)
+        {
+            Dictionary<int, int> occurence = new Dictionary<int, int>();
+
+            int operations = 0;
+
+            foreach (int num in nums)
+            {
+                if(!occurence.TryAdd(num,1))
+                {
+                    occurence[num]++;
+                }
+            }
+
+            foreach (int num in occurence.Keys)
+            {
+                int v = occurence[num];
+                if (v == 1)
+                {
+                    return -1;
+                }
+
+                operations += v / 3;
+                if (v % 3 != 0)
+                {
+                    operations++;
+                }
+            }
+
+            GC.Collect();
+            return operations;
+        }
+
+        #endregion
 
         #region 2125. Number of Laser Beams in a Bank
 
