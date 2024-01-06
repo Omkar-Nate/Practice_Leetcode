@@ -28,6 +28,42 @@ namespace LeetCodePractice
 
         #region Leetcode
 
+        #region 1637. Widest Vertical Area Between Two Points Containing No Points
+
+        public static int MaxWidthOfVerticalArea(int[][] points)
+        {
+            List<int> xCoordinates = new List<int>();
+            int maxWidth = 0;
+
+            for (int i = 0; i < points.Length; i++)
+            {
+                if (!xCoordinates.Contains(points[i][0]))
+                {
+                    xCoordinates.Add(points[i][0]);
+                }
+            }
+
+            xCoordinates.Sort();
+
+            if (xCoordinates.Count < 2)
+            {
+                return 0;
+            }
+
+            for (int i= 0; i<xCoordinates.Count-1; i++)
+            {
+                if ((xCoordinates[i + 1] - xCoordinates[i]) > maxWidth)
+                {
+                    maxWidth = xCoordinates[i + 1] - xCoordinates[i];
+                }
+            }
+
+            return maxWidth;
+
+        }
+
+        #endregion
+
         #region 2870. Minimum Number of Operations to Make Array Empty
 
         /// <summary>
