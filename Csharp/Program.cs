@@ -13,17 +13,21 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 28, 28, 28, 28, 28, 28, 16, 16, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26 };
-            //string[] bank = new string[] { "011001", "000000", "010100", "001000" };
+            int[] arr = new int[] { 4, 6, 2, 5, 7, 9, 1, 3 };
+            foreach (int i in arr)
+            {
+                Console.Write(i);
+            }
 
-            //arr = Shuffle(arr, arr.Length/2);
+            QuickSort(arr, 0, arr.Length - 1);
 
-            //foreach(int number in arr)
-            //{
-            //    Console.WriteLine(number);
-            //}
+            Console.WriteLine();
+            foreach (int i in arr)
+            {
+                Console.Write(i);
+            }
 
-            Console.WriteLine(MinOperations(arr));
+            Console.WriteLine();
         }
 
         #region Leetcode
@@ -429,6 +433,55 @@ namespace LeetCodePractice
 
         #region Sorting
 
+        #region Quick Sort
+
+        /// <summary>
+        /// Quick Sort, select pivot and move it to the right position
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="low"></param>
+        /// <param name="high"></param>
+        static void QuickSort(int[] arr, int low, int high)
+        {
+            if (low < high)
+            {
+                int pIndex = PlacePivot(arr, low, high);
+                QuickSort(arr, low, pIndex - 1);
+                QuickSort(arr, pIndex + 1, high);
+            }
+        }
+
+        static int PlacePivot(int[] arr, int low, int high)
+        {
+            int pivot = arr[low];
+            int i = low;
+            int j = high;
+
+            while (i < j)
+            {
+                while (arr[i] <= pivot && i <= high - 1)
+                {
+                    i++;
+                }
+
+                while (arr[j] > pivot && j >= low + 1)
+                {
+                    j--;
+                }
+                if (i < j)
+                {
+                    SwapNumbers(ref arr[i], ref arr[j]);
+                }
+            }
+
+            SwapNumbers(ref arr[low],ref arr[j]);
+
+            return j;
+        }
+
+
+        #endregion
+
         #region Bubble Sort Recursive
 
         /// <summary>
@@ -528,7 +581,6 @@ namespace LeetCodePractice
         }
 
         #endregion
-
 
         #region Insertion Sort
         /// <summary>
