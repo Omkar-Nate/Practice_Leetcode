@@ -13,24 +13,56 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 4, 6, 2, 5, 7, 9, 1, 3 };
-            foreach (int i in arr)
-            {
-                Console.Write(i);
-            }
+            int[] arr = new int[] { 1,1,2,2,2,3,4,5,5,5,7,8,8,9 };
+            //foreach (int i in arr)
+            //{
+            //    Console.Write(i);
+            //}
 
-            QuickSort(arr, 0, arr.Length - 1);
+            //QuickSort(arr, 0, arr.Length - 1);
 
-            Console.WriteLine();
-            foreach (int i in arr)
+            Console.WriteLine(arr.Length);
+            int num = RemoveDuplicates(arr);
+            for (int i= 0; i<num;i++)
             {
-                Console.Write(i);
+                Console.Write(arr[i]);
             }
 
             Console.WriteLine();
         }
 
         #region Leetcode
+
+        #region 26. Remove Duplicates from Sorted Array
+
+        /// <summary>
+        /// Two Pointers: brings unique number to front in a sorted array and returns index upto which the numbers are unique
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int RemoveDuplicates(int[] nums)
+        {
+            // 1,1,2,2,2,3,4,5,5,5, 7, 8, 8, 9
+            // 0,1,2,3,4,5,6,7,8,9,10,11,12,13
+            // i=0
+            // j=0,1,2
+
+            int i = 0, j = 0, numsLength=nums.Length;
+
+            while (j != numsLength)
+            {
+                if (nums[j] != nums[i])
+                {
+                    i++;
+                    nums[i] = nums[j];
+                }
+                j++;
+            }
+
+            return i+1;
+        }
+
+        #endregion
 
         #region 1637. Widest Vertical Area Between Two Points Containing No Points
 
