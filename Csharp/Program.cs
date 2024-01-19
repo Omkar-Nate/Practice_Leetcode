@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 
 namespace LeetCodePractice
@@ -13,25 +14,37 @@ namespace LeetCodePractice
             // Function calls that return a value should be added in a console.writeline
             // Functions that return a collection should be iterated using loops
 
-            int[] arr = new int[] { 1,1,2,2,2,3,4,5,5,5,7,8,8,9 };
-            //foreach (int i in arr)
-            //{
-            //    Console.Write(i);
-            //}
-
-            //QuickSort(arr, 0, arr.Length - 1);
-
-            Console.WriteLine(arr.Length);
-            int num = RemoveDuplicates(arr);
-            for (int i= 0; i<num;i++)
-            {
-                Console.Write(arr[i]);
-            }
+            int[] arr = new int[] { 3, 4, 5, 1, 2 };
+            Console.WriteLine(Check(arr));
 
             Console.WriteLine();
         }
 
         #region Leetcode
+
+        #region 1752. Check if Array Is Sorted and Rotated
+
+        /// <summary>
+        /// Checks if the array is sorted
+        /// Array can be a rotated array
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static bool Check(int[] nums)
+        {
+            int count = 0;
+
+            for(int i = 1; i < nums.Length; i++)
+            {
+                if (nums[i-1] > nums[i]) count++;
+            }
+
+            if (nums[nums.Length-1] > nums[0]) count++;
+
+            return count <= 1;
+        }
+
+        #endregion
 
         #region 26. Remove Duplicates from Sorted Array
 
